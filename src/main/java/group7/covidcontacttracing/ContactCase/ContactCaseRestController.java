@@ -1,12 +1,14 @@
-package group7.covidcontacttracing;
+package group7.covidcontacttracing.ContactCase;
 
+import group7.covidcontacttracing.CovidCase.CovidCase;
+import group7.covidcontacttracing.CovidCase.CovidCaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * Contact Case REST Controller Class
  *
@@ -15,11 +17,10 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @RestController
 public class ContactCaseRestController {
-    private final AtomicLong counter = new AtomicLong();
     @Autowired
-    private  ContactCaseRepository contactCaseRepository;
+    private ContactCaseRepository contactCaseRepository;
     @Autowired
-    private  CovidCaseRepository covidCaseRepository;
+    private CovidCaseRepository covidCaseRepository;
 
     /**
      *  Function used to add a contact case by the public health unit
@@ -37,7 +38,7 @@ public class ContactCaseRestController {
                                       @RequestParam(value="exposureDate") String exposureDate,
                                       @RequestParam(value="covidID") String covidID)
     {
-        ContactCase contactCase = new ContactCase(counter.incrementAndGet(),covidID,name,email,exposureDate,phone);
+        ContactCase contactCase = new ContactCase(covidID,name,email,exposureDate,phone);
         contactCaseRepository.save(contactCase);
 
         CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));

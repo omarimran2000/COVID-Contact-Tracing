@@ -1,4 +1,6 @@
-package group7.covidcontacttracing;
+package group7.covidcontacttracing.CovidCase;
+
+import group7.covidcontacttracing.ContactCase.ContactCase;
 
 import javax.persistence.*;
 import java.util.ArrayList;

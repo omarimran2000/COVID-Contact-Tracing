@@ -1,4 +1,4 @@
-package group7.covidcontacttracing;
+package group7.covidcontacttracing.ContactCase;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,8 +23,7 @@ public class ContactCase {
     private boolean filledOut;
     private boolean symptoms;
 
-    public ContactCase(Long id, String covidID, String name, String email, String exposureDate, String phone) {
-        this.id = id;
+    public ContactCase(String covidID, String name, String email, String exposureDate, String phone) {
         this.covidID = covidID;
         this.name = name;
         this.email = email;

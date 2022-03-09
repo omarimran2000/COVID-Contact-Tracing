@@ -1,5 +1,6 @@
-package group7.covidcontacttracing;
+package group7.covidcontacttracing.ContactCase;
 
+import group7.covidcontacttracing.ContactCase.ContactCase;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
