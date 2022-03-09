@@ -21,6 +21,7 @@ public class ContactCase {
     private String phone;
     private boolean needHelp;
     private boolean filledOut;
+    private boolean symptoms;
 
     public ContactCase(Long id, String covidID, String name, String email, String exposureDate, String phone) {
         this.id = id;
@@ -31,6 +32,7 @@ public class ContactCase {
         this.phone = phone;
         needHelp = false;
         filledOut = false;
+        symptoms = false;
     }
 
     public ContactCase() {
@@ -75,6 +77,10 @@ public class ContactCase {
         return filledOut;
     }
 
+    public boolean isSymptoms() {
+        return symptoms;
+    }
+
     public void setCovidID(String covidID) {
         this.covidID = covidID;
     }
@@ -101,6 +107,10 @@ public class ContactCase {
 
     public void setFilledOut(boolean filledOut) {
         this.filledOut = filledOut;
+    }
+
+    public void setSymptoms(boolean symptoms) {
+        this.symptoms = symptoms;
     }
 
     public String toString() {

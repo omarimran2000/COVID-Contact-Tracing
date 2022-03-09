@@ -79,5 +79,14 @@ public class ContactCaseRestController {
     {
         return contactCaseRepository.findByNameAndId(name,Long.valueOf(id));
     }
+    /**
+     * Used to find all the contact cases with symptoms
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseSymptoms")
+    public List<ContactCase> contactCaseName()
+    {
+        return contactCaseRepository.findBySymptoms(true);
+    }
 
 }
