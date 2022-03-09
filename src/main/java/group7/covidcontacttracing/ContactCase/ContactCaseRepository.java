@@ -1,5 +1,6 @@
-package group7.covidcontacttracing;
+package group7.covidcontacttracing.ContactCase;
 
+import group7.covidcontacttracing.ContactCase.ContactCase;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
@@ -14,4 +15,5 @@ public interface ContactCaseRepository extends CrudRepository<ContactCase, Long>
     List<ContactCase> findByNameAndId(@Param("name") String name, @Param("id") Long id);
     List<ContactCase> findByneedHelp(@Param("needHelp") boolean needHelp);
     List<ContactCase> findByfilledOut(@Param("filledOut") boolean filledOut);
+    List<ContactCase> findBySymptoms(@Param("symptoms") boolean symptoms);
 }
