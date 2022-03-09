@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Covid Case Contact</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src=""></script>
+  <script src=""></script>
+</head>
+<body>
+<p>
+  <b>COVID-19 Contact Information Form</b>
+</p>
+
+<button type="button" id="createNewContact">Create New COVID-19 Contact Case</button>
+<br><br>
+<p>New COVID-19 Case Form</p>
+<form id="contactInfo">
+  First Name: <input type="text" id="fName"> <br>
+  Last Name: <input type="text" id="lName"> <br>
+  Email: <input type="email" id="email"> <br>
+  Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
+  Exposure Date: <input type="date" id="expDate"> <br>
+  Case ID: <input type="text" id="caseID"> <br><br>
+  <button type="button" id="submit">Submit Form</button>
+  <br><br>
+
+  <p> Retrieve Results</p>
+  <button type="button" id="missingInfo">Contacts With Missing Info</button>
+  <button type="button" id="haveSymptoms">Patient Has Symptoms</button>
+  <button type="button" id="help">Help</button>
+</form>
+
+</body>
+</html>
