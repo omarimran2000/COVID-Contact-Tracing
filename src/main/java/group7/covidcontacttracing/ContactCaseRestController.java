@@ -13,6 +13,8 @@ public class ContactCaseRestController {
     private final AtomicLong counter = new AtomicLong();
     @Autowired
     private  ContactCaseRepository contactCaseRepository;
+    @Autowired
+    private  CovidCaseRepository covidCaseRepository;
 
     @GetMapping("/contactCaseAdd")
     public ContactCase contactCaseAdd(@RequestParam(value="name") String name,
@@ -23,6 +25,10 @@ public class ContactCaseRestController {
     {
         ContactCase contactCase = new ContactCase(counter.incrementAndGet(),covidID,name,email,exposureDate,phone);
         contactCaseRepository.save(contactCase);
+
+        CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));
+        covidCase.addContactCase(contactCase);
+        covidCaseRepository.save(covidCase);
 
         return contactCase;
 
