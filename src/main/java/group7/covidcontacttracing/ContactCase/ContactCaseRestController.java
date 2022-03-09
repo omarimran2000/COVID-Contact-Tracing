@@ -90,4 +90,34 @@ public class ContactCaseRestController {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+    @GetMapping("/contactCaseAddFilled")
+    public ContactCase addFilled(@RequestParam(value="name") String name,
+                                 @RequestParam(value="id") String id,
+                                 @RequestParam(value="symptoms")String symptoms,
+                                 @RequestParam(value="help")String help)
+    {
+        ContactCase contactCase  = contactCaseRepository.findByNameAndId(name,Long.valueOf(id)).get(0);
+        contactCase.setFilledOut(true);
+
+        if (symptoms.equals("Yes"))
+        {
+            contactCase.setSymptoms(true);
+        }
+        else
+        {
+            contactCase.setSymptoms(false);
+        }
+
+        if (help.equals("Yes"))
+        {
+            contactCase.setNeedHelp(true);
+        }
+        else
+        {
+            contactCase.setNeedHelp(false);
+        }
+        contactCaseRepository.save(contactCase);
+        return contactCase;
+    }
+
 }
