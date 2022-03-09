@@ -17,9 +17,9 @@
 <form id="contactInfo">
   First Name: <input type="text" id="fName"> <br>
   Last Name: <input type="text" id="lName"> <br>
-  Email: <input type="text" id="email"> <br>
-  Phone Number: <input type="text" id="pNumber"> <br>
-  Exposure Date: <input type="text" id="expDate"> <br>
+  Email: <input type="email" id="email"> <br>
+  Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
+  Exposure Date: <input type="date" id="expDate"> <br>
   Case ID: <input type="text" id="caseID"> <br><br>
   <button type="button" id="submit">Submit Form</button>
   <br><br>
