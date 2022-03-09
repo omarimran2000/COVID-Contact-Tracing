@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div>
+<div id="form">
     <h1>Fill out the questionnaire</h1>
 
     <form>
@@ -31,7 +31,7 @@
 
         <p> If yes, </p>
 
-        <label for="typeOfSupport"> Do you need any support to adhere to self-isolation? </label>
+        <label for="typeOfSupport"> What kind of support do you need to adhere to self-isolation? </label>
         <select name = "typeOfSupport" id = "typeOfSupport">
             <option value="" selected disabled hidden>Choose here</option>
             <option value = "food"> Food/Groceries </option>
@@ -48,6 +48,7 @@
 
         <input type="button" value="Submit questionnaire" onclick="filledOut();"/>
     </form>
+    <p><a href="/">Return to Menu</a></p>
 </div>
 </body>
 </html>

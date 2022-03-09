@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Covid Case Contact</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/contactForm.js"></script>
+</head>
+<body>
+<p>
+  <b>COVID-19 Contact Information Form</b>
+</p>
+
+<button type="button" id="createNewContact">Create New COVID-19 Case</button>
+<br><br>
+<p>New COVID-19 Contact Case Form</p>
+<form id="contactInfo">
+  Full Name: <input type="text" id="name"> <br>
+  Email: <input type="email" id="email"> <br>
+  Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
+  Exposure Date: <input type="date" id="expDate"> <br>
+  COVID Case ID: <input type="text" id="caseID"> <br><br>
+  <button type="button" id="submit" onclick="addCase();">Submit Form</button>
+  <br><br>
+
+  <p> Retrieve Results</p>
+  <button type="button" id="missingInfo", onclick="showMissingInfo();">Contacts With Missing Info</button>
+  <button type="button" id="haveSymptoms", onclick="showSymptoms()">Contacts Has Symptoms</button>
+  <button type="button" id="help", onclick="showHelp()">Contacts Need Help</button>
+</form>
+<p><a href="/">Return to Menu</a></p>
+<p id="console"></p>
+
+</body>
+</html>

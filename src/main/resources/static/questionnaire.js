@@ -9,5 +9,9 @@ function filledOut() {
             },
             type:"GET"
         }
-    );
+    ).then(function ()
+    {
+        $('#form').empty();
+        $('#form').append("<p>Your form has been submitted. <a href=\"/\">Return to Menu</a></p>");
+    });
 }
