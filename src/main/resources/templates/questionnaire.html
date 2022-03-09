@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Questionnaire</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src=".js"></script>
+</head>
+
+<body>
+<div>
+    <h1>Fill out the questionnaire</h1>
+
+    <form>
+        <label for="remain"> Since yesterday's questionnaire, have you remained inside your residence? </label>
+        <select name = "remain" id = "remain">
+            <option value = "Yes"> Yes </option>
+            <option value = "No"> No </option>
+        </select>
+
+        <label for="needSupport"> Do you need any support to adhere to self-isolation? </label>
+        <select name = "needSupport" id = "needSupport">
+            <option value = "Yes"> Yes </option>
+            <option value = "No"> No </option>
+        </select>
+
+        <p> If yes, </p>
+
+        <label for="typeOfSupport"> Do you need any support to adhere to self-isolation? </label>
+        <select name = "typeOfSupport" id = "typeOfSupport">
+            <option value = "food"> Food/Groceries </option>
+            <option value = "meds"> Medications/Prescriptions </option>
+            <option value = "pet"> Pet Care </option>
+        </select>
+
+        <label for="symptoms"> Are you experiencing any symptoms? </label>
+        <select name = "symptoms" id = "symptoms">
+            <option value = "Yes"> Yes </option>
+            <option value = "No"> No </option>
+        </select>
+
+        <input type="button" value="Submit questionnaire" onclick="submitQuestionnaire();"/>
+    </form>
+</div>
+</body>
+</html>
