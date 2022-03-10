@@ -42,60 +42,88 @@ class ContactCaseControllerTests {
     @Test
     @Order(2)
     void testContactCaseAdd() throws Exception{
-        mockMvc.perform(get("/contactCaseAdd")
+        String str = mockMvc.perform(get("/contactCaseAdd")
                 .param("name", "NAME")
                 .param("phone", "PHONE")
                 .param("email", "EMAIL")
                 .param("exposureDate", "EXPOSURE_DATE")
                 .param("covidID", "1")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        String[] params = str.replaceAll("[{}]","").split(",");
+
+        assert(params[0].split(":")[1].equals("2"));
+        assert(params[1].split(":")[1].equals("\"1\""));
+        assert(params[2].split(":")[1].equals("\"NAME\""));
+        assert(params[3].split(":")[1].equals("\"EMAIL\""));
+        assert(params[4].split(":")[1].equals("\"EXPOSURE_DATE\""));
+        assert(params[5].split(":")[1].equals("\"PHONE\""));
+        assert(params[6].split(":")[1].equals("false"));
+        assert(params[7].split(":")[1].equals("false"));
+        assert(params[8].split(":")[1].equals("false"));
     }
 
     @Test
     @Order(4)
     void testContactCaseHelp() throws Exception{
-        mockMvc.perform(get("/contactCaseHelp")
+        String str = mockMvc.perform(get("/contactCaseHelp")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        assert(!str.equals("[]"));
     }
 
     @Test
     @Order(4)
     void testContactCaseFind() throws Exception{
-        mockMvc.perform(get("/findContactCase")
+        String str = mockMvc.perform(get("/findContactCase")
                 .param("name", "NAME")
                 .param("id", "2")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        String[] params = str.replaceAll("[{}]","").split(",");
+
+        assert(!str.equals("[]"));
     }
 
     @Test
     @Order(4)
     void testContactCaseNotFilledOut() throws Exception{
-        mockMvc.perform(get("/contactCaseNotFilledOut")
+        String str = mockMvc.perform(get("/contactCaseNotFilledOut")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        assert(!str.equals("[]"));
     }
 
     @Test
     @Order(4)
     void testContactCaseSymptoms() throws Exception{
-        mockMvc.perform(get("/contactCaseSymptoms")
+        String str = mockMvc.perform(get("/contactCaseSymptoms")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        assert(!str.equals("[]"));
     }
 
     @Test
     @Order(3)
     void testContactCaseFill() throws Exception{
-        mockMvc.perform(get("/contactCaseAddFilled")
+        String str = mockMvc.perform(get("/contactCaseAddFilled")
                 .param("name", "NAME")
                 .param("id", "2")
                 .param("symptoms", "Yes")
                 .param("help", "Yes")
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        String[] params = str.replaceAll("[{}]","").split(",");
+
+        assert(params[6].split(":")[1].equals("true"));
+        assert(params[7].split(":")[1].equals("true"));
+        assert(params[8].split(":")[1].equals("true"));
     }
 
 }
