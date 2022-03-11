@@ -16,4 +16,9 @@ public class WebController {
         return "contactform";
 
     }
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+
+    }
 }

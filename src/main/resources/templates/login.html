@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Public Health Unit Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/login.js"></script>
+</head>
+<body>
+    <h1>Please enter your login information to enter the public health unit interface</h1>
+    <div id="error" style="display: none;">
+        <p style="color:red"> Incorrect login information. Please try again</p>
+    </div>
+    Username: <input type="text" id="username">
+    <button type="button" id="submit" onclick="authenticate();">Login</button>
+
+</body>
+</html>

@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ *  User class for public health units to login
+ * @version March 11 2022
+ * @author Omar Imran and Wintana Yosief
+ */
 @Entity
 public class User {
     @Id
