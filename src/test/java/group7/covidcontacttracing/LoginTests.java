@@ -21,7 +21,7 @@ public class LoginTests {
     MockMvc mvc;
 
     @Test
-    public void covidCaseAddTest() throws Exception {
+    public void loginTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","omarimran"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("true")));
