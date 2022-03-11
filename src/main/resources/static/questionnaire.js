@@ -7,10 +7,9 @@ function filledOut() {
                 symptoms: $('#symptoms').val(),
                 help: $('#needSupport').val()
             },
-            type:"GET"
+            type: "GET"
         }
-    ).then(function ()
-    {
+    ).then(function () {
         $('#form').empty();
         $('#form').append("<p>Your form has been submitted. <a href=\"/\">Return to Menu</a></p>");
     });
