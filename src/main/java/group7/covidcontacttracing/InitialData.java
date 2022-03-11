@@ -30,4 +30,11 @@ public class InitialData implements ApplicationRunner {
 
 
     }
+    public ContactCaseRepository getContactCaseRepository(){
+        return contactCaseRepository;
+    }
+
+    public CovidCaseRepository getCovidCaseRepository(){
+        return covidCaseRepository;
+    }
 }
