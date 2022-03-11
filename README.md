@@ -32,7 +32,7 @@ The application consists of a COVID form page for the Public Health Unit and a p
 
 ## UML Class Diagram
 
-![alt text](https://github.com/omarimran2000/COVID-Contract-Tracing/blob/wintana-readme/Diagrams/UML_Diagram.png?raw=true)
+![alt text](Diagrams/UML_Diagram.png?raw=true)
 
 ## ER Diagram
-![alt text](https://github.com/omarimran2000/COVID-Contract-Tracing/blob/wintana-readme/Diagrams/ER_Diagram.png?raw=true)
+![alt text](Diagrams/ER_Diagram.png?raw=true)
