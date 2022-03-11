@@ -30,4 +30,7 @@ Case asked for support (in which case the appropriate support system is referred
 
 The application consists of a COVID form page for the Public Health Unit and a page for the COVID Questionnaire that each contact case must fill out. The Public Health Unit can use the COVID form page to create COVID cases, add contact cases using the New COVID-19 Contact Case Form, and find contact cases given its COVID Case ID. To add a new contact case into the system, the Public Health Unit must provide the name, email, phone number, exposure date, and the COVID Case ID that the contact case corresponds to. The Public Health Unit can also retrieve the contact cases that are missing any information, have symptoms, or require help based on the results of the Contact Case Questionnaire. The COVID Questionnaire requires each contact case to answer a series of questions such as "have you remained in your residence?", "do you need any support to adhere to self-isolation?", and "are you experiencing any symptoms?". If the contact case requires support, they may specify the type of support needed. 
 
+## UML Class Diagram
+
+![alt text](https://github.com/omarimran2000/COVID-Contract-Tracing/blob/wintana-readme/UML_Diagram.png?raw=true)
 
