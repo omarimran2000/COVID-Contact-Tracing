@@ -8,8 +8,9 @@ import java.util.List;
 
 /**
  * Covid Case Class
- * @version March 7, 2022
+ *
  * @author Wintana Yosief
+ * @version March 7, 2022
  */
 @Entity
 public class CovidCase {
@@ -23,23 +24,23 @@ public class CovidCase {
         contactCases = new ArrayList<ContactCase>();
     }
 
-    public Long getID(){
+    public Long getID() {
         return caseID;
     }
 
-    public void setID(long caseID){
+    public void setID(long caseID) {
         this.caseID = caseID;
     }
 
-    public void addContactCase(ContactCase contactCase){
+    public void addContactCase(ContactCase contactCase) {
         contactCases.add(contactCase);
     }
 
-    public void setContactCases(List<ContactCase> contactCases){
+    public void setContactCases(List<ContactCase> contactCases) {
         this.contactCases = contactCases;
     }
 
-    public List<ContactCase> getContactCases(){
+    public List<ContactCase> getContactCases() {
         return contactCases;
     }
 }

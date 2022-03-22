@@ -55,6 +55,12 @@ class CovidContactTracingApplicationTests {
                 .andDo(print()).andReturn().getResponse().getContentAsString();
 
         assert(str.contains("Daily Questionnaire"));
+
+        str = mockMvc.perform(get("/login")
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        assert(str.contains("Public Health Unit Login"));
     }
 
 }
