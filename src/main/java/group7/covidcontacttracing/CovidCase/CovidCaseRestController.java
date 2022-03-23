@@ -18,6 +18,7 @@ public class CovidCaseRestController {
 
     /**
      * Function to add a Covid case
+     *
      * @return
      */
     @GetMapping("/covidCaseAdd")
@@ -30,11 +31,12 @@ public class CovidCaseRestController {
 
     /**
      * Function to find a Covid case from its ID
+     *
      * @param caseID of the Covid case
      * @return
      */
     @GetMapping("/findCovidCase")
-    public CovidCase covidCaseFind(@RequestParam(value="caseID") String caseID) {
+    public CovidCase covidCaseFind(@RequestParam(value = "caseID") String caseID) {
         return covidCaseRepository.findCovidCaseByCaseID(Long.valueOf(caseID));
     }
 }

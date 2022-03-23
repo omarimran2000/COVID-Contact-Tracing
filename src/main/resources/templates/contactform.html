@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-  <title>Covid Case Contact</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="/contactForm.js"></script>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title>Covid Case Contact</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/contactForm.js"></script>
 </head>
 <body>
-<div class="header">
-  <img src="/images/Logo.jpg" class="logo" width="150" height="125" align="left">
-  <div class ="items">
-    <a href="/">Home</a>
-    <a class="active" href="/contactform">Public Health Unit Login</a>
-    <a href="/questionnaire">Questionnaire</a>
-  </div>
-</div>
 <p>
-  <b>COVID-19 Contact Information Form</b>
+    <b>COVID-19 Contact Information Form</b>
 </p>
 
 <button type="button" id="createNewContact" onclick="createCovidCase();">Create New COVID-19 Case</button>
 <br><br>
 <p>New COVID-19 Contact Case Form</p>
 <form id="contactInfo">
-  Full Name: <input type="text" id="name"> <br>
-  Email: <input type="email" id="email"> <br>
-  Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
-  Exposure Date: <input type="date" id="expDate"> <br>
-  COVID Case ID: <input type="text" id="caseID"> <br><br>
-  <button type="button" id="submit" onclick="addCase();">Submit Form</button>
-  <br><br>
+    Full Name: <input type="text" id="name"> <br>
+    Email: <input type="email" id="email"> <br>
+    Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
+    Exposure Date: <input type="date" id="expDate"> <br>
+    COVID Case ID: <input type="text" id="caseID"> <br><br>
+    <button type="button" id="submit" onclick="addCase();">Submit Form</button>
+    <br><br>
 
-  <p> Retrieve Results</p>
-  <button type="button" id="missingInfo", onclick="showMissingInfo();">Contacts With Missing Info</button>
-  <button type="button" id="haveSymptoms", onclick="showSymptoms()">Contacts Has Symptoms</button>
-  <button type="button" id="help", onclick="showHelp()">Contacts Need Help</button> <br>
-  Search Contacts by COVID Case ID: <input type="text" id="searchID">
-  <button type="button" id="search", onclick="findCovidCase()">Search</button>
-  <br><br><br><br>
+    <p> Retrieve Results</p>
+    <button type="button" id="missingInfo" , onclick="showMissingInfo();">Contacts With Missing Info</button>
+    <button type="button" id="haveSymptoms" , onclick="showSymptoms()">Contacts Has Symptoms</button>
+    <button type="button" id="help" , onclick="showHelp()">Contacts Need Help</button>
+    <br>
+    Search Contacts by COVID Case ID: <input type="text" id="searchID">
+    <button type="button" id="search" , onclick="findCovidCase()">Search</button>
+    <br><br><br><br>
 </form>
 <p id="console"></p>
+<p><a href="/">Return to Menu</a></p>
 </body>
 </html>
