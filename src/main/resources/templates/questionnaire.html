@@ -8,13 +8,17 @@
 </head>
 
 <body>
-<div id="form">
+<div id="user_input">
+    <p>Name: <input type="text" id="name"/></p>
+    <p>Case ID: <input type="text" id="caseID"/></p>
+    <input type="button" value="Submit" id="nameCheck" onclick="findContact();">
+</div>
+<div id="error" style="display: none;">
+    <p style="color:red"> Case not found. Please try again</p>
+</div>
+<div id="form" style="display: none">
     <h1>Fill out the questionnaire</h1>
-
     <form>
-        <p>Name: <input type="text" id="name"/></p>
-        <p>Case ID: <input type="text" id="caseID"/></p>
-
         <label for="remain"> Since yesterday's questionnaire, have you remained inside your residence? </label>
         <select name="remain" id="remain">
             <option value="" selected disabled hidden>Choose here</option>
@@ -25,12 +29,23 @@
         <label for="needSupport"> Do you need any support to adhere to self-isolation? </label>
         <select name="needSupport" id="needSupport">
             <option value="" selected disabled hidden>Choose here</option>
-            <option value="Yes"> Yes</option>
-            <option value="No"> No</option>
+            <option value = "Yes"> Yes </option>
+            <option value = "No"> No </option>
+            <script>
+                document.getElementById("needSupport").addEventListener("change", function(){
+                    if ($('#needSupport').val() == "Yes")
+                    {
+                        $('#possibleHelp').show();
+                    }
+                    else
+                    {
+                        $('#possibleHelp').hide();
+                    }
+                })
+            </script>
         </select>
         <br><br>
-        <p> If yes, </p>
-
+        <div id="possibleHelp" style="display: none">
         <label for="typeOfSupport"> What kind of support do you need to adhere to self-isolation? </label>
         <select name="typeOfSupport" id="typeOfSupport">
             <option value="" selected disabled hidden>Choose here</option>
@@ -38,6 +53,7 @@
             <option value="meds"> Medications/Prescriptions</option>
             <option value="pet"> Pet Care</option>
         </select>
+        </div>
         <br><br>
         <label for="symptoms"> Are you experiencing any symptoms? </label>
         <select name="symptoms" id="symptoms">

@@ -14,3 +14,28 @@ function filledOut() {
         $('#form').append("<p>Your form has been submitted. <a href=\"/\">Return to Menu</a></p>");
     });
 }
+
+function findContact() {
+    $.ajax({
+            url: "/findContactCase",
+            data: {
+                name: $('#name').val(),
+                id: $('#caseID').val(),
+            },
+            type: "GET"
+        }
+    ).then(function (data) {
+            if (data) {
+                $('#error').hide();
+                $('#nameCheck').hide();
+                $('#form').show();
+                $('#name').attr('readonly', 'readonly');
+                $('#caseID').attr('readonly', 'readonly');
+            } else {
+                $('#error').show();
+            }
+        }
+    );
+
+}
+

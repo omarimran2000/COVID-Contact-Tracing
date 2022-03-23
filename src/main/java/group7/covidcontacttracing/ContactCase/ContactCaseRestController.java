@@ -77,8 +77,14 @@ public class ContactCaseRestController {
      * @return list of contact cases
      */
     @GetMapping("/findContactCase")
-    public List<ContactCase> contactCaseName(@RequestParam(value = "name") String name, @RequestParam(value = "id") String id) {
-        return contactCaseRepository.findByNameAndId(name, Long.valueOf(id));
+    public ContactCase contactCaseName(@RequestParam(value="name") String name, @RequestParam(value="id") String id)
+    {
+        try {
+            return contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
+        }catch(Exception e){
+            return null;
+        }
+
     }
 
     /**
