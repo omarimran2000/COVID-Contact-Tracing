@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Daily Questionnaire</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/questionnaire.js"></script>
 </head>
@@ -20,14 +20,14 @@
     <h1>Fill out the questionnaire</h1>
     <form>
         <label for="remain"> Since yesterday's questionnaire, have you remained inside your residence? </label>
-        <select name = "remain" id = "remain">
+        <select name="remain" id="remain">
             <option value="" selected disabled hidden>Choose here</option>
-            <option value = "Yes"> Yes </option>
-            <option value = "No"> No </option>
+            <option value="Yes"> Yes</option>
+            <option value="No"> No</option>
         </select>
         <br><br>
         <label for="needSupport"> Do you need any support to adhere to self-isolation? </label>
-        <select name = "needSupport" id = "needSupport">
+        <select name="needSupport" id="needSupport">
             <option value="" selected disabled hidden>Choose here</option>
             <option value = "Yes"> Yes </option>
             <option value = "No"> No </option>
@@ -47,19 +47,19 @@
         <br><br>
         <div id="possibleHelp" style="display: none">
         <label for="typeOfSupport"> What kind of support do you need to adhere to self-isolation? </label>
-        <select name = "typeOfSupport" id = "typeOfSupport">
+        <select name="typeOfSupport" id="typeOfSupport">
             <option value="" selected disabled hidden>Choose here</option>
-            <option value = "food"> Food/Groceries </option>
-            <option value = "meds"> Medications/Prescriptions </option>
-            <option value = "pet"> Pet Care </option>
+            <option value="food"> Food/Groceries</option>
+            <option value="meds"> Medications/Prescriptions</option>
+            <option value="pet"> Pet Care</option>
         </select>
         </div>
         <br><br>
         <label for="symptoms"> Are you experiencing any symptoms? </label>
-        <select name = "symptoms" id = "symptoms">
+        <select name="symptoms" id="symptoms">
             <option value="" selected disabled hidden>Choose here</option>
-            <option value = "Yes"> Yes </option>
-            <option value = "No"> No </option>
+            <option value="Yes"> Yes</option>
+            <option value="No"> No</option>
         </select>
         <br><br><br>
         <input type="button" value="Submit questionnaire" onclick="filledOut();"/>
