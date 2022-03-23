@@ -1,0 +1,22 @@
+.header {
+    overflow: hidden;
+
+    padding: 20px 10px;
+}
+.header a {
+    background-color: #00f;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.header a:hover {
+    background-color: #ddd;
+    color: blue;
+}
+.header a.active {
+    background-color: #04AA6D;
+    color: white;
+}
