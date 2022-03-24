@@ -21,12 +21,16 @@ public class User {
     @NotNull
     private String username;
 
+    @NotNull
+    private String password;
+
     public User() {
 
     }
 
-    public User(String username) {
+    public User(String username, String password) {
         this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -37,11 +41,19 @@ public class User {
         return username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

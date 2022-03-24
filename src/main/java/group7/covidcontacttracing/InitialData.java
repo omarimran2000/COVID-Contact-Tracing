@@ -31,7 +31,7 @@ public class InitialData implements ApplicationRunner {
 
         covidCaseRepository.save(covidCase);
 
-        userRepository.save(new User("omarimran"));
+        userRepository.save(new User("omarimran", "67ABt*B"));
 
 
     }
