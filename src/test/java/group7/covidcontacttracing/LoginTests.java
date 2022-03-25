@@ -22,11 +22,14 @@ public class LoginTests {
 
     @Test
     public void loginTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","omarimran"))
+        mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","omarimran").param("password","67ABt*B"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("true")));
 
-        mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","lebron"))
+        mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","omarimran").param("password","67ABt*"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("false")));
+        mvc.perform(MockMvcRequestBuilders.get("/checkUser").param("username","omarimran1").param("password","67ABt*"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("false")));
 

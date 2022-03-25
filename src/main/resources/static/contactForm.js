@@ -70,17 +70,22 @@ function findCovidCase() {
     ).then(function (data) {
         $('#console').empty();
         $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
+
+        generateTable();
+
         let cases = "";
 
         for (let i = 0; i < data.contactCases.length; i++) {
-            cases += "Name: " + data.contactCases[i].name;
-            cases += " Phone: " + data.contactCases[i].phone;
-            cases += " Email: " + data.contactCases[i].email;
-            cases += " ID: " + data.contactCases[i].id;
-            cases += " COVID Case ID: " + data.contactCases[i].covidID;
-            cases += " Exposure Date: " + data.contactCases[i].exposureDate;
-            cases += "<br>";
+            cases += "<tr>";
+            cases += "<td>" + data.contactCases[i].name;
+            cases += "<td>" + data.contactCases[i].phone;
+            cases += "<td>" + data.contactCases[i].email;
+            cases += "<td>" + data.contactCases[i].id;
+            cases += "<td>" + data.contactCases[i].covidID;
+            cases += "<td>" + data.contactCases[i].exposureDate;
+            cases += "</tr>";
         }
+        $('#console').append("</table>");
         $('#console').append(cases);
 
     });
@@ -90,16 +95,34 @@ function findCovidCase() {
 function printResponse(data) {
     $('#console').empty();
     $('#console').append("Cases : <br>");
+
+    if(data.length > 0) {
+        generateTable();
+    }
+
+
     let cases = "";
 
     for (let i = 0; i < data.length; i++) {
-        cases += "Name: " + data[i].name;
-        cases += " Phone: " + data[i].phone;
-        cases += " Email: " + data[i].email;
-        cases += " ID: " + data[i].id;
-        cases += " COVID Case ID: " + data[i].covidID;
-        cases += " Exposure Date: " + data[i].exposureDate;
-        cases += "<br>";
+        cases += "<tr>";
+        cases += "<td>" + data[i].name + "</td>";
+        cases += "<td>" + data[i].phone + "</td>";
+        cases += "<td>" + data[i].email + "</td>";
+        cases += "<td>" + data[i].id + "</td>";
+        cases += "<td>" + data[i].covidID + "</td>";
+        cases += "<td>" + data[i].exposureDate + "</td></tr>";
+        cases += "</tr>";
     }
+    $('#console').append("</table>");
     $('#console').append(cases);
+}
+
+function generateTable() {
+    $('#console').append("<table><tr>");
+    $('#console').append("<th>Name</th>");
+    $('#console').append("<th>Phone</th>");
+    $('#console').append("<th>Email</th>");
+    $('#console').append("<th>ID</th>");
+    $('#console').append("<th>COVID Case ID</th>");
+    $('#console').append("<th>Exposure Date</th>");
 }
