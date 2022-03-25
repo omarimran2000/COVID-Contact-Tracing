@@ -3,6 +3,7 @@ function authenticate() {
             url: "/checkUser",
             data: {
                 username: $('#username').val(),
+                password: $('#password').val(),
             },
             type: "GET"
         }

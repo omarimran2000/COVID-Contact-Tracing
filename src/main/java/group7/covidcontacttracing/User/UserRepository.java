@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findCovidCaseByUsername(@Param("username") String username);
+    User findCovidCaseByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 }
