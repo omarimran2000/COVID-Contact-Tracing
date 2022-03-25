@@ -38,14 +38,18 @@ public class ContactCaseRestController {
                                       @RequestParam(value = "email") String email,
                                       @RequestParam(value = "exposureDate") String exposureDate,
                                       @RequestParam(value = "covidID") String covidID) {
-        ContactCase contactCase = new ContactCase(covidID, name, email, exposureDate, phone);
-        contactCaseRepository.save(contactCase);
+        try {
+            ContactCase contactCase = new ContactCase(covidID, name, email, exposureDate, phone);
 
-        CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));
-        covidCase.addContactCase(contactCase);
-        covidCaseRepository.save(covidCase);
+            CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));
+            covidCase.addContactCase(contactCase);
+            contactCaseRepository.save(contactCase);
+            covidCaseRepository.save(covidCase);
 
-        return contactCase;
+            return contactCase;
+        }catch (Exception ex){
+            return null;
+        }
 
     }
 
