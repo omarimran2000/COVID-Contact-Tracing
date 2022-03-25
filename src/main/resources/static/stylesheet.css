@@ -34,7 +34,7 @@ font-family: Verdana, sans-serif;
 
 .options a{
     background-color: #5e5eff;
-    float: center;
+    display: inline-block;
     color: #f2f2f2;
     text-align: center;
     padding: 20px 20px;
@@ -75,9 +75,6 @@ button:active {
   }
 
 
-
-
-=======
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
