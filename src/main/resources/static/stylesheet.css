@@ -1,3 +1,7 @@
+body {
+background-color: #c8fae3;
+}
+
 .header {
     overflow: hidden;
 
@@ -20,3 +24,36 @@
     background-color: #04AA6D;
     color: white;
 }
+
+.options{
+   display: block;
+   margin: auto;
+   width: 50%;
+}
+
+.options a{
+    background-color: #5e5eff;
+    float: center;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 16px;
+}
+
+.title {
+  display: block;
+   margin: auto;
+   width: 50%;
+}
+
+.contactForm {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.
+
+
+
+

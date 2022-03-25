@@ -16,14 +16,14 @@
         <a href="/questionnaire">Questionnaire</a>
     </div>
 </div>
-<p>
+<p id = "title">
     <b>COVID-19 Contact Information Form</b>
 </p>
 
 <button type="button" id="createNewContact" onclick="createCovidCase();">Create New COVID-19 Case</button>
 <br><br>
 <p>New COVID-19 Contact Case Form</p>
-<form id="contactInfo">
+<form class = "contactForm" id="contactInfo">
     Full Name: <input type="text" id="name"> <br>
     Email: <input type="email" id="email"> <br>
     Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
