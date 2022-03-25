@@ -1,5 +1,6 @@
 body {
-background-color: #c8fae3;
+background-color: #e8faf2;
+font-family: Verdana, sans-serif;
 }
 
 .header {
@@ -47,12 +48,31 @@ background-color: #c8fae3;
 }
 
 .contactForm {
-  display: block;
-  margin: auto;
-  width: 50%;
+ display: block;
+  margin-left: 250px;
 }
 
-.
+.formTitle {
+ display: block;
+  margin-left: 250px;
+}
+
+button{
+    background-color: #4d4dff;
+    outline-color: #4d4dff;
+    color: white;
+}
+
+button:hover {
+    background-color: #04AA6D;
+    outline-color: #04AA6D;
+    color: white;
+}
+
+button:active {
+ box-shadow: 0 3px #666;
+  transform: translateY(2px);
+  }
 
 
 
