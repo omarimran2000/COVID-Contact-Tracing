@@ -28,7 +28,29 @@ Case asked for support (in which case the appropriate support system is referred
 
 ## Milestone 1: Early Prototype
 
-The application consists of a COVID form page for the Public Health Unit and a page for the COVID Questionnaire that each contact case must fill out. The Public Health Unit can use the COVID form page to create COVID cases, add contact cases using the New COVID-19 Contact Case Form, and find contact cases given its COVID Case ID. To add a new contact case into the system, the Public Health Unit must provide the name, email, phone number, exposure date, and the COVID Case ID that the contact case corresponds to. The Public Health Unit can also retrieve the contact cases that are missing any information, have symptoms, or require help based on the results of the Contact Case Questionnaire. The COVID Questionnaire requires each contact case to answer a series of questions such as "have you remained in your residence?", "do you need any support to adhere to self-isolation?", and "are you experiencing any symptoms?". If the contact case requires support, they may specify the type of support needed. 
+The application consists of a COVID form page for the Public Health Unit and a page for the COVID Questionnaire that 
+each contact case must fill out. The Public Health Unit can use the COVID form page to create COVID cases, add contact 
+cases using the New COVID-19 Contact Case Form, and find contact cases given its COVID Case ID. To add a new contact 
+case into the system, the Public Health Unit must provide the name, email, phone number, exposure date, and the COVID 
+Case ID that the contact case corresponds to. The Public Health Unit can also retrieve the contact cases that are 
+missing any information, have symptoms, or require help based on the results of the Contact Case Questionnaire. The 
+COVID Questionnaire requires each contact case to answer a series of questions such as "have you remained in your 
+residence?", "do you need any support to adhere to self-isolation?", and "are you experiencing any symptoms?". If the 
+contact case requires support, they may specify the type of support needed. 
+
+## Milestone 2: Alpha Release
+
+Public Health users must now sign in with a valid username and password to use the Contact Case Form. Contacts must 
+provide their name and Case ID to access the daily questionnaire. Error messages are shown if any field of the Contact 
+Case Form, or the questionnaire are empty, prompting the user to fill them in before creating the new contact case or 
+submitting the questionnaire. The pages all have a unified header, showing the current page, and allowing navigation to 
+the other pages. 
+
+## Next Steps
+
+The next sprint will include registration of Public Health users, combined login and contact form pages, error tracking 
+for when a user tries to create new Contact Case that already exists, and feature to show when a Contact Case is not 
+following quarantine or when they need help while quarantining. 
 
 ## UML Class Diagram
 
@@ -36,3 +58,5 @@ The application consists of a COVID form page for the Public Health Unit and a p
 
 ## ER Diagram
 ![alt text](Diagrams/ER_Diagram.png?raw=true)
+
+

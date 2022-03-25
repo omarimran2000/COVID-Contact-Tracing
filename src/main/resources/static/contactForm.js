@@ -11,8 +11,14 @@ function addCase() {
             type: "GET"
         }
     ).then(function (data) {
-        $('#console').empty();
-        $('#console').append(data.name + " has been added with ID: " + data.id);
+        if (data) {
+            $('#error').hide();
+            $('#console').empty();
+            $('#console').append(data.name + " has been added with ID: " + data.id);
+        } else {
+            $('#console').empty();
+            $('#error').show();
+        }
     });
 }
 
