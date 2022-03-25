@@ -1,3 +1,8 @@
+body {
+background-color: #e8faf2;
+font-family: Verdana, sans-serif;
+}
+
 .header {
     overflow: hidden;
 
@@ -21,6 +26,58 @@
     color: white;
 }
 
+.options{
+   display: block;
+   margin: auto;
+   width: 50%;
+}
+
+.options a{
+    background-color: #5e5eff;
+    float: center;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 16px;
+}
+
+.title {
+  display: block;
+   margin: auto;
+   width: 50%;
+}
+
+.contactForm {
+ display: block;
+  margin-left: 250px;
+}
+
+.formTitle {
+ display: block;
+  margin-left: 250px;
+}
+
+button{
+    background-color: #4d4dff;
+    outline-color: #4d4dff;
+    color: white;
+}
+
+button:hover {
+    background-color: #04AA6D;
+    outline-color: #04AA6D;
+    color: white;
+}
+
+button:active {
+ box-shadow: 0 3px #666;
+  transform: translateY(2px);
+  }
+
+
+
+
+=======
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
