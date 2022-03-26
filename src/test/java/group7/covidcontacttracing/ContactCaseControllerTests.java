@@ -58,6 +58,7 @@ class ContactCaseControllerTests {
         assert(params[6].split(":")[1].equals("false"));
         assert(params[7].split(":")[1].equals("false"));
         assert(params[8].split(":")[1].equals("false"));
+        assert(params[9].split(":")[1].equals("true"));
     }
 
     @Test
@@ -112,6 +113,7 @@ class ContactCaseControllerTests {
                 .param("id", "2")
                 .param("symptoms", "Yes")
                 .param("help", "Yes")
+                .param("quarantine", "No")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print()).andReturn().getResponse().getContentAsString();
 
@@ -120,6 +122,16 @@ class ContactCaseControllerTests {
         assert(params[6].split(":")[1].equals("true"));
         assert(params[7].split(":")[1].equals("true"));
         assert(params[8].split(":")[1].equals("true"));
+        assert(params[9].split(":")[1].equals("false"));
+    }
+    @Test
+    @Order(4)
+    void testContactCaseQurantine() throws Exception{
+        String str = mockMvc.perform(get("/contactCaseSymptoms")
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print()).andReturn().getResponse().getContentAsString();
+
+        assert(!str.equals("[]"));
     }
 
 }

@@ -22,6 +22,7 @@ public class ContactCase {
     private boolean needHelp;
     private boolean filledOut;
     private boolean symptoms;
+    private boolean quarantine;
 
     public ContactCase(String covidID, String name, String email, String exposureDate, String phone) {
         this.covidID = covidID;
@@ -32,6 +33,7 @@ public class ContactCase {
         needHelp = false;
         filledOut = false;
         symptoms = false;
+        quarantine = true;
     }
 
     public ContactCase() {
@@ -80,6 +82,10 @@ public class ContactCase {
         return symptoms;
     }
 
+    public boolean isQuarantine() {
+        return quarantine;
+    }
+
     public void setCovidID(String covidID) {
         this.covidID = covidID;
     }
@@ -110,6 +116,10 @@ public class ContactCase {
 
     public void setSymptoms(boolean symptoms) {
         this.symptoms = symptoms;
+    }
+
+    public void setQuarantine(boolean quarantine) {
+        this.quarantine = quarantine;
     }
 
     public String toString() {
