@@ -25,7 +25,7 @@ function findContact() {
             type: "GET"
         }
     ).then(function (data) {
-            if (data) {
+            if ((data) && (data.filledOut==false)){
                 $('#error').hide();
                 $('#nameCheck').hide();
                 $('#form').show();
