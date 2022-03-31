@@ -8,8 +8,8 @@ import javax.persistence.Id;
 /**
  * Contact Case Class
  *
- * @author Omar Imran
- * @version March 8 2022
+ * @author Omar Imran, Wintana Yosief
+ * @version March 31 2022
  */
 @Entity
 public class ContactCase {

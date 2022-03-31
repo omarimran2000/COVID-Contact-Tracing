@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Contact Case REST Controller Class
  *
- * @author Omar Imran
- * @version March 8 2022
+ * @author Omar Imran, Wintana Yosief
+ * @version March 31 2022
  */
 @RestController
 public class ContactCaseRestController {
@@ -101,6 +101,37 @@ public class ContactCaseRestController {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+
+    /**
+     * Used to find all the contact cases requiring food and groceries
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseFoodSupport")
+    public List<ContactCase> contactCaseFoodSupport() {
+        return contactCaseRepository.findByFoodSupport(true);
+    }
+
+    /**
+     * Used to find all the contact cases requiring medications and prescriptions
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseMedicalSupport")
+    public List<ContactCase> contactCaseMedicalSupport() {
+        return contactCaseRepository.findByMedicalSupport(true);
+    }
+
+    /**
+     * Used to find all the contact cases requiring pet care
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCasePetSupport")
+    public List<ContactCase> contactCasePetSupport() {
+        return contactCaseRepository.findByPetSupport(true);
+    }
+
     /**
      * Used to add the answers from the questionnaire
      * @param name
@@ -109,28 +140,12 @@ public class ContactCaseRestController {
      * @param help
      * @return the case
      */
-    @GetMapping("/contactCaseFoodSupport")
-    public List<ContactCase> contactCaseFoodSupport() {
-        return contactCaseRepository.findByFoodSupport(true);
-    }
-
-    @GetMapping("/contactCaseMedicalSupport")
-    public List<ContactCase> contactCaseMedicalSupport() {
-        return contactCaseRepository.findByMedicalSupport(true);
-    }
-
-    @GetMapping("/contactCasePetSupport")
-    public List<ContactCase> contactCasePetSupport() {
-        return contactCaseRepository.findByPetSupport(true);
-    }
-
     @GetMapping("/contactCaseAddFilled")
     public ContactCase addFilled(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "id") String id,
                                  @RequestParam(value = "symptoms") String symptoms,
                                  @RequestParam(value = "help") String help,
-                                 @RequestParam(value = "quarantine") String quarantine) {
-                                 @RequestParam(value = "help") String help,
+                                 @RequestParam(value = "quarantine") String quarantine,
                                  @RequestParam(value = "supportNeeded") String supportNeeded) {
         ContactCase contactCase = contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
         contactCase.setFilledOut(true);
