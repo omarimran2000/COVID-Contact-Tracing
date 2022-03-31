@@ -97,23 +97,42 @@ public class ContactCaseRestController {
      * @return list of contact cases
      */
     @GetMapping("/contactCaseSymptoms")
-    public List<ContactCase> contactCaseName() {
+    public List<ContactCase> contactCaseSymptoms() {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+    /**
+     * Used to add the answers from the questionnaire
+     * @param name
+     * @param id
+     * @param symptoms
+     * @param help
+     * @return the case
+     */
     @GetMapping("/contactCaseAddFilled")
     public ContactCase addFilled(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "id") String id,
                                  @RequestParam(value = "symptoms") String symptoms,
-                                 @RequestParam(value = "help") String help) {
+                                 @RequestParam(value = "help") String help,
+                                 @RequestParam(value = "quarantine") String quarantine) {
         ContactCase contactCase = contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
         contactCase.setFilledOut(true);
 
         contactCase.setSymptoms(symptoms.equals("Yes"));
 
         contactCase.setNeedHelp(help.equals("Yes"));
+        contactCase.setQuarantine(quarantine.equals("Yes"));
         contactCaseRepository.save(contactCase);
         return contactCase;
+    }
+    /**
+     * Used to find all the contact cases who are not following quarantine
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseQuarantine")
+    public List<ContactCase> contactCaseQuarantine() {
+        return contactCaseRepository.findByQuarantine(false);
     }
 
 }
