@@ -22,6 +22,9 @@ public class ContactCase {
     private boolean needHelp;
     private boolean filledOut;
     private boolean symptoms;
+    private boolean foodSupport;
+    private boolean medicalSupport;
+    private boolean petSupport;
 
     public ContactCase(String covidID, String name, String email, String exposureDate, String phone) {
         this.covidID = covidID;
@@ -30,6 +33,8 @@ public class ContactCase {
         this.exposureDate = exposureDate;
         this.phone = phone;
         needHelp = false;
+        foodSupport = false;
+        medicalSupport = false;
         filledOut = false;
         symptoms = false;
     }
@@ -80,6 +85,18 @@ public class ContactCase {
         return symptoms;
     }
 
+    public boolean isFoodSupport() {
+        return foodSupport;
+    }
+
+    public boolean isMedicalSupport() {
+        return medicalSupport;
+    }
+
+    public boolean isPetSupport() {
+        return petSupport;
+    }
+
     public void setCovidID(String covidID) {
         this.covidID = covidID;
     }
@@ -110,6 +127,18 @@ public class ContactCase {
 
     public void setSymptoms(boolean symptoms) {
         this.symptoms = symptoms;
+    }
+
+    public void setFoodSupport(boolean foodSupport){
+        this.foodSupport = foodSupport;
+    }
+
+    public void setMedicalSupport(boolean medicalSupport) {
+        this.medicalSupport = medicalSupport;
+    }
+
+    public void setPetSupport(boolean petSupport) {
+        this.petSupport = petSupport;
     }
 
     public String toString() {

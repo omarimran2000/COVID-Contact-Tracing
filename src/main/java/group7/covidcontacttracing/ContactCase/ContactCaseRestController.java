@@ -101,19 +101,41 @@ public class ContactCaseRestController {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+    @GetMapping("/contactCaseFoodSupport")
+    public List<ContactCase> contactCaseFoodSupport() {
+        return contactCaseRepository.findByFoodSupport(true);
+    }
+
+    @GetMapping("/contactCaseMedicalSupport")
+    public List<ContactCase> contactCaseMedicalSupport() {
+        return contactCaseRepository.findByMedicalSupport(true);
+    }
+
+    @GetMapping("/contactCasePetSupport")
+    public List<ContactCase> contactCasePetSupport() {
+        return contactCaseRepository.findByPetSupport(true);
+    }
+
     @GetMapping("/contactCaseAddFilled")
     public ContactCase addFilled(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "id") String id,
                                  @RequestParam(value = "symptoms") String symptoms,
-                                 @RequestParam(value = "help") String help) {
+                                 @RequestParam(value = "help") String help,
+                                 @RequestParam(value = "supportNeeded") String supportNeeded) {
         ContactCase contactCase = contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
         contactCase.setFilledOut(true);
 
         contactCase.setSymptoms(symptoms.equals("Yes"));
 
         contactCase.setNeedHelp(help.equals("Yes"));
+        contactCase.setFoodSupport(supportNeeded.equals("food"));
+        contactCase.setMedicalSupport(supportNeeded.equals("meds"));
+        contactCase.setPetSupport(supportNeeded.equals("pet"));
+
         contactCaseRepository.save(contactCase);
         return contactCase;
     }
+
+
 
 }

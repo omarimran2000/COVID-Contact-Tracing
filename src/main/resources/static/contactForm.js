@@ -52,6 +52,37 @@ function showSymptoms() {
     });
 }
 
+function showFoodSupport() {
+    $.ajax( {
+        url: "/contactCaseFoodSupport",
+        type: "GET"
+
+    }
+    ).then(function (data) {
+        printResponse(data);
+    });
+}
+
+function showMedicalSupport() {
+    $.ajax( {
+        url: "/contactCaseMedicalSupport",
+        type: "GET"
+    }
+    ).then(function (data) {
+        printResponse(data);
+    });
+}
+
+function showPetSupport() {
+    $.ajax( {
+        url: "/contactCasePetSupport",
+        type: "GET"
+    }
+    ).then(function (data) {
+        printResponse(data);
+    });
+}
+
 function createCovidCase() {
     $.ajax({
             url: "/covidCaseAdd",

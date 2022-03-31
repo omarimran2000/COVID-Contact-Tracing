@@ -5,7 +5,8 @@ function filledOut() {
                 name: $('#name').val(),
                 id: $('#caseID').val(),
                 symptoms: $('#symptoms').val(),
-                help: $('#needSupport').val()
+                help: $('#needSupport').val(),
+                supportNeeded: $('#typeOfSupport').val()
             },
             type: "GET"
         }
