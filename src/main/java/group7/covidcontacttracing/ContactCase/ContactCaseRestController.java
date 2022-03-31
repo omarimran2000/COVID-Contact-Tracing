@@ -97,10 +97,18 @@ public class ContactCaseRestController {
      * @return list of contact cases
      */
     @GetMapping("/contactCaseSymptoms")
-    public List<ContactCase> contactCaseName() {
+    public List<ContactCase> contactCaseSymptoms() {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+    /**
+     * Used to add the answers from the questionnaire
+     * @param name
+     * @param id
+     * @param symptoms
+     * @param help
+     * @return the case
+     */
     @GetMapping("/contactCaseFoodSupport")
     public List<ContactCase> contactCaseFoodSupport() {
         return contactCaseRepository.findByFoodSupport(true);
@@ -121,6 +129,8 @@ public class ContactCaseRestController {
                                  @RequestParam(value = "id") String id,
                                  @RequestParam(value = "symptoms") String symptoms,
                                  @RequestParam(value = "help") String help,
+                                 @RequestParam(value = "quarantine") String quarantine) {
+                                 @RequestParam(value = "help") String help,
                                  @RequestParam(value = "supportNeeded") String supportNeeded) {
         ContactCase contactCase = contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
         contactCase.setFilledOut(true);
@@ -128,6 +138,7 @@ public class ContactCaseRestController {
         contactCase.setSymptoms(symptoms.equals("Yes"));
 
         contactCase.setNeedHelp(help.equals("Yes"));
+        contactCase.setQuarantine(quarantine.equals("Yes"));
         contactCase.setFoodSupport(supportNeeded.equals("food"));
         contactCase.setMedicalSupport(supportNeeded.equals("meds"));
         contactCase.setPetSupport(supportNeeded.equals("pet"));
@@ -135,7 +146,14 @@ public class ContactCaseRestController {
         contactCaseRepository.save(contactCase);
         return contactCase;
     }
-
-
+    /**
+     * Used to find all the contact cases who are not following quarantine
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseQuarantine")
+    public List<ContactCase> contactCaseQuarantine() {
+        return contactCaseRepository.findByQuarantine(false);
+    }
 
 }

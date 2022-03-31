@@ -22,6 +22,7 @@ public class ContactCase {
     private boolean needHelp;
     private boolean filledOut;
     private boolean symptoms;
+    private boolean quarantine;
     private boolean foodSupport;
     private boolean medicalSupport;
     private boolean petSupport;
@@ -37,6 +38,7 @@ public class ContactCase {
         medicalSupport = false;
         filledOut = false;
         symptoms = false;
+        quarantine = true;
     }
 
     public ContactCase() {
@@ -85,6 +87,10 @@ public class ContactCase {
         return symptoms;
     }
 
+    public boolean isQuarantine() {
+        return quarantine;
+    }
+
     public boolean isFoodSupport() {
         return foodSupport;
     }
@@ -127,6 +133,10 @@ public class ContactCase {
 
     public void setSymptoms(boolean symptoms) {
         this.symptoms = symptoms;
+    }
+
+    public void setQuarantine(boolean quarantine) {
+        this.quarantine = quarantine;
     }
 
     public void setFoodSupport(boolean foodSupport){

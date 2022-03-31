@@ -31,7 +31,15 @@ function showMissingInfo() {
         printResponse(data);
     });
 }
-
+function showQuarantine() {
+    $.ajax({
+            url: "/contactCaseQuarantine",
+            type: "GET"
+        }
+    ).then(function (data) {
+        printResponse(data);
+    });
+}
 function showHelp() {
     $.ajax({
             url: "/contactCaseHelp",

@@ -6,6 +6,8 @@ function filledOut() {
                 id: $('#caseID').val(),
                 symptoms: $('#symptoms').val(),
                 help: $('#needSupport').val(),
+                quarantine: $('#remain').val()
+                help: $('#needSupport').val(),
                 supportNeeded: $('#typeOfSupport').val()
             },
             type: "GET"
@@ -26,7 +28,7 @@ function findContact() {
             type: "GET"
         }
     ).then(function (data) {
-            if (data) {
+            if ((data) && (data.filledOut==false)){
                 $('#error').hide();
                 $('#nameCheck').hide();
                 $('#form').show();

@@ -20,6 +20,8 @@ public interface ContactCaseRepository extends CrudRepository<ContactCase, Long>
 
     List<ContactCase> findBySymptoms(@Param("symptoms") boolean symptoms);
 
+    List<ContactCase> findByQuarantine(@Param("quarantine") boolean quarantine);
+
     List<ContactCase> findByFoodSupport(@Param("foodSupport") boolean foodSupport);
 
     List<ContactCase> findByMedicalSupport(@Param("medicalSupport") boolean medicalSupport);
