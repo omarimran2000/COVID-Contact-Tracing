@@ -16,3 +16,24 @@ function authenticate() {
         }
     });
 }
+function registerUser(){
+    if ($('#password').val() != $('#password2').val())
+    {
+
+        $('#errorRegister').show();
+    }
+    else
+    {
+        $.ajax({
+                url: "/registerUser",
+                data: {
+                    username: $('#username').val(),
+                    password: $('#password').val(),
+                },
+                type: "GET"
+            }
+        ).then(function (data) {
+                window.location = "/login";
+            });
+    }
+}
