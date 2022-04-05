@@ -33,4 +33,16 @@ public class UserRestController {
             return "false";
         }
     }
+    /**
+     * Registers users
+     * @param username the user's username
+     * @return user
+     */
+    @GetMapping("/registerUser")
+    public User registerUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password)
+    {
+        User user = new User(username,password);
+        userRepository.save(user);
+        return user;
+    }
 }

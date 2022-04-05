@@ -18,12 +18,13 @@
 <body>
     <h1>Please enter your login information to enter the public health unit interface</h1>
     <div id="error" style="display: none;">
-        <p style="color:red"> Incorrect login information or you have completed the survey.</p>
+        <p style="color:red"> Incorrect login information.</p>
     </div>
     <div class="login">
         <b>Username:</b> <br> <input type="text" placeholder="Enter Username" id="username"> <br> <br>
         <b>Password:</b> <br> <input type="password" placeholder="Enter Password" id="password"> <br> <br>
-        <button type="button" id="submit" onclick="authenticate();">Login</button>
+        <button type="button" id="submit" onclick="authenticate();">Login</button> <br>
+        <a href="/register">Click here if you need to be registered. </a>
     </div>
 
 </body>
