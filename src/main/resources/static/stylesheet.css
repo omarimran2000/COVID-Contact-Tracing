@@ -5,18 +5,24 @@ font-family: Verdana, sans-serif;
 
 .header {
     overflow: hidden;
-
     padding: 20px 10px;
+    background: #1abc9c;
+    margin:auto;
+
 }
+
 .header a {
     background-color: #00f;
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 30px 30px;
+    padding: 12px;
     text-decoration: none;
     font-size: 17px;
+    line-height: 25px;
+    border-radius: 4px;
 }
+
 .header a:hover {
     background-color: #ddd;
     color: blue;
@@ -24,6 +30,10 @@ font-family: Verdana, sans-serif;
 .header a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+.header .items {
+    float:right;
 }
 
 .options{

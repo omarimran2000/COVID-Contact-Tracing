@@ -36,6 +36,7 @@ public class ContactCase {
         needHelp = false;
         foodSupport = false;
         medicalSupport = false;
+        petSupport = false;
         filledOut = false;
         symptoms = false;
         quarantine = true;
