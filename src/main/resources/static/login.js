@@ -17,9 +17,9 @@ function authenticate() {
     });
 }
 function registerUser(){
-    const specialCharacters = /[!@#$%^&*()-_=+<>?]/;
-    const uppercase = /[A-Z]/;
-    const lowercase = /[a-z]/;
+    var specialCharacters = /[!@#$%^&*()_=+<>?]/;
+    var uppercase = /[A-Z]/;
+    var lowercase = /[a-z]/;
     var goodPass = true;
     $('#errorRegister').hide();
     $('#errorLength').hide();
@@ -47,6 +47,11 @@ function registerUser(){
         goodPass = false;
         $('#passHasSpace').show();
     }
+     if(!specialCharacters.test(pass1))
+        {
+            goodPass = false;
+            $('#passNoSpecial').show();
+        }
     if(!uppercase.test(pass1))
     {
         goodPass = false;
@@ -57,11 +62,7 @@ function registerUser(){
         goodPass = false;
         $('#passNoLower').show();
      }
-    if(!specialCharacters.test(pass1))
-    {
-        goodPass = false;
-        $('#passNoSpecial').show();
-    }
+
     if(goodPass)
     {
         $.ajax({
