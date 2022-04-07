@@ -19,9 +19,6 @@
 <p>
     <b>COVID-19 Contact Information Form</b>
 </p>
-<div id="error" style="display: none;">
-    <p style="color:red"> Info missing, please fill in all fields </p>
-</div>
 <button type="button" id="createNewContact" onclick="createCovidCase();">Create New COVID-19 Case</button>
 <br><br>
 <p>New COVID-19 Contact Case Form</p>
@@ -43,6 +40,12 @@
     <button type="button" id="search" , onclick="findCovidCase()">Search</button>
     <br><br><br><br>
 </form>
+<div id="infoMissingError" style="display: none;">
+    <p style="color:red"> Info missing, please fill in all fields </p>
+</div>
+<div id="caseNotFoundError" style="display: none;">
+    <p style="color:red"> Case with that ID does not exist </p>
+</div>
 <p id="console"></p>
 <p><a href="/">Return to Menu</a></p>
 </body>

@@ -12,11 +12,12 @@ function addCase() {
         }
     ).then(function (data) {
         if (data) {
-            $('#error').hide();
+            $('#infoMissingError').hide();
             $('#console').empty();
             $('#console').append(data.name + " has been added with ID: " + data.id);
         } else {
-            $('#error').show();
+            $('#console').empty();
+            $('#infoMissingError').show();
         }
     });
 }
@@ -73,21 +74,27 @@ function findCovidCase() {
             }
         }
     ).then(function (data) {
-        $('#console').empty();
-        $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
-        let cases = "";
+        if (data) {
+            $('#caseNotFoundError').hide();
+            $('#console').empty();
+            $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
+            let cases = "";
 
-        for (let i = 0; i < data.contactCases.length; i++) {
-            cases += "Name: " + data.contactCases[i].name;
-            cases += " Phone: " + data.contactCases[i].phone;
-            cases += " Email: " + data.contactCases[i].email;
-            cases += " ID: " + data.contactCases[i].id;
-            cases += " COVID Case ID: " + data.contactCases[i].covidID;
-            cases += " Exposure Date: " + data.contactCases[i].exposureDate;
-            cases += "<br>";
+            for (let i = 0; i < data.contactCases.length; i++) {
+                cases += "Name: " + data.contactCases[i].name;
+                cases += " Phone: " + data.contactCases[i].phone;
+                cases += " Email: " + data.contactCases[i].email;
+                cases += " ID: " + data.contactCases[i].id;
+                cases += " COVID Case ID: " + data.contactCases[i].covidID;
+                cases += " Exposure Date: " + data.contactCases[i].exposureDate;
+                cases += "<br>";
+            }
+            $('#console').append(cases);
         }
-        $('#console').append(cases);
-
+        else {
+            $('#console').empty();
+            $('#caseNotFoundError').show();
+        }
     });
 
 }
