@@ -12,12 +12,12 @@ function addCase() {
         }
     ).then(function (data) {
         if (data) {
-            $('#error').hide();
+            $('#infoMissingError').hide();
             $('#console').empty();
             $('#console').append(data.name + " has been added with ID: " + data.id);
         } else {
             $('#console').empty();
-            $('#error').show();
+            $('#infoMissingError').show();
         }
     });
 }
@@ -113,26 +113,30 @@ function findCovidCase() {
             }
         }
     ).then(function (data) {
-        $('#console').empty();
-        $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
+        if (data) {
+            $('#caseNotFoundError').hide();
+            $('#console').empty();
+            $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
+            generateTable();
+            let cases = "";
 
-        generateTable();
-
-        let cases = "";
-
-        for (let i = 0; i < data.contactCases.length; i++) {
-            cases += "<tr>";
-            cases += "<td>" + data.contactCases[i].name;
-            cases += "<td>" + data.contactCases[i].phone;
-            cases += "<td>" + data.contactCases[i].email;
-            cases += "<td>" + data.contactCases[i].id;
-            cases += "<td>" + data.contactCases[i].covidID;
-            cases += "<td>" + data.contactCases[i].exposureDate;
-            cases += "</tr>";
+            for (let i = 0; i < data.contactCases.length; i++) {
+                cases += "<tr>";
+                cases += "<td>" + data.contactCases[i].name;
+                cases += "<td>" + data.contactCases[i].phone;
+                cases += "<td>" + data.contactCases[i].email;
+                cases += "<td>" + data.contactCases[i].id;
+                cases += "<td>" + data.contactCases[i].covidID;
+                cases += "<td>" + data.contactCases[i].exposureDate;
+                cases += "</tr>";
+            }
+            $('#console').append("</table>");
+            $('#console').append(cases);
         }
-        $('#console').append("</table>");
-        $('#console').append(cases);
-
+        else {
+            $('#console').empty();
+            $('#caseNotFoundError').show();
+        }
     });
 
 }
