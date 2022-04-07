@@ -18,6 +18,7 @@ function authenticate() {
 }
 function registerUser(){
     var specialCharacters = /[!@#$%^&*()_=+<>?]/;
+    var numbers = /[1234567890]/;
     var uppercase = /[A-Z]/;
     var lowercase = /[a-z]/;
     var register = true;
@@ -29,6 +30,7 @@ function registerUser(){
     $('#passNoCap').hide();
     $('#passNoLower').hide();
     $('#passNoSpecial').hide();
+    $('#passNoNumber').hide();
 
     const user = $('#username').val();
     const pass1 = $('#password').val();
@@ -53,10 +55,15 @@ function registerUser(){
         $('#passHasSpace').show();
     }
      if(!specialCharacters.test(pass1))
-        {
-            register = false;
-            $('#passNoSpecial').show();
-        }
+     {
+        register = false;
+        $('#passNoSpecial').show();
+     }
+     if(!numbers.test(pass1))
+     {
+        register = false;
+        $('#passNoNumber').show();
+     }
     if(!uppercase.test(pass1))
     {
         register = false;
