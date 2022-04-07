@@ -136,3 +136,41 @@ h1 {
     width: 50%;
     padding: 16px;
 }
+
+.split {
+    color: white;
+    height: 80%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: rgb(126, 126, 252);
+}
+
+.right {
+    right: 0;
+    background-color: #9effb8;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.centered img{
+    width: 150px;
+    border-radius: 50%;
+}
+
+a .link{
+    font-size: 24px;
+}
