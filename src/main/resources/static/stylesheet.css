@@ -138,31 +138,23 @@ h1 {
 }
 
 .split {
-    height: 80%;
+    color: white;
     width: 50%;
     position: fixed;
-    z-index: 1;
+    height: 80%;
     bottom: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-bottom: -20px;
 }
 
 .left {
     left: 0;
     background-color: #7e7efc;
 }
+
 .right {
     right: 0;
-    background-color: #81f7a0;
-}
-
-.left div.hover {
-    left: 0;
-    background-color: #ddd;
-}
-.right div.hover{
-    right: 0;
-    background-color: #ddd;
+    background-color: #9effb8;
 }
 
 .centered {
@@ -178,6 +170,11 @@ h1 {
     border-radius: 50%;
 }
 
+.link a:hover{
+     background-color: #04AA6D;
+     outline-color: #04AA6D;
+     color: white;
+}
 .dropdown {
     display: block;
     margin-left: 100px;
