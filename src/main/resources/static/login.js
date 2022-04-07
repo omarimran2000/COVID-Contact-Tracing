@@ -78,3 +78,14 @@ function registerUser(){
             });
     }
 }
+function showPassword(){
+    var pswd = $('#password')[0]
+    if (pswd.type == "password") {
+        pswd.type = "text";
+        $('#password2')[0].type = "text"; // For register.html
+
+    } else {
+        pswd.type = "password";
+        $('#password2')[0].type = "password";
+    }
+}

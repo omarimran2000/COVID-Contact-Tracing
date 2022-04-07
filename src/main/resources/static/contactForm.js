@@ -13,6 +13,7 @@ function addCase() {
     ).then(function (data) {
         if (data) {
             $('#infoMissingError').hide();
+            $('#caseNotFoundError').hide();
             $('#console').empty();
             $('#console').append(data.name + " has been added with ID: " + data.id);
         } else {
@@ -98,6 +99,8 @@ function createCovidCase() {
         }
     ).then(function (data) {
         $('#console').empty();
+        $('#infoMissingError').hide();
+        $('#caseNotFoundError').hide();
         $('#console').append("COVID Case Created with ID: " + data.id);
 
     });
@@ -115,6 +118,7 @@ function findCovidCase() {
     ).then(function (data) {
         if (data) {
             $('#caseNotFoundError').hide();
+            $('#infoMissingError').hide();
             $('#console').empty();
             $('#console').append("COVID Contact Cases with ID: " + data.id + "<br>");
             generateTable();
@@ -143,6 +147,8 @@ function findCovidCase() {
 
 function printResponse(data) {
     $('#console').empty();
+    $('#infoMissingError').hide();
+    $('#caseNotFoundError').hide();
     $('#console').append("Cases : <br>");
 
     if(data.length > 0) {
