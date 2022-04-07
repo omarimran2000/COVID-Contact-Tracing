@@ -20,10 +20,27 @@
 <div id="errorRegister" style="display: none;">
     <p style="color:red"> Passwords do not match.</p>
 </div>
+<div id="errorLength" style="display: none;">
+    <p style="color:red"> Password does not meet length requirement. Must be 8 or more characters.</p>
+</div>
+<div id="passHasSpace" style="display: none;">
+    <p style="color:red"> Password cannot contain space</p>
+</div>
+<div id="passNoCap" style="display: none;">
+    <p style="color:red"> Password must contain a uppercase letter</p>
+</div>
+<div id="passNoLower" style="display: none;">
+    <p style="color:red"> Password must contain a lowercase letter</p>
+</div>
+<div id="passNoSpecial" style="display: none;">
+    <p style="color:red"> Password must contain a special character or number</p>
+</div>
+
 <div class="login">
     <b>Username:</b> <br> <input type="text" placeholder="Enter Username" id="username"> <br> <br>
     <b>Password:</b> <br> <input type="password" placeholder="Enter Password" id="password"> <br> <br>
     <b>Confirm Password:</b> <br> <input type="password" placeholder="Enter Password" id="password2"> <br> <br>
+    <input type="checkbox" onclick="showPassword()">Show Password <br>
     <button type="button" id="submit" onclick="registerUser();">Register</button>
 </div>
 
