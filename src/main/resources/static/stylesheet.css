@@ -128,10 +128,10 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 20px;
 }
 
 .login {
-
     margin: auto;
     width: 50%;
     padding: 16px;
@@ -149,7 +149,7 @@ h1 {
 
 .left {
     left: 0;
-    background-color: rgb(126, 126, 252);
+    background-color: #7e7efc;
 }
 
 .right {
@@ -174,4 +174,18 @@ h1 {
      background-color: #04AA6D;
      outline-color: #04AA6D;
      color: white;
+}
+.dropdown {
+    display: block;
+    margin-left: 100px;
+}
+
+.dropdown select{
+    background-color: #4d4dff;
+    color: white;
+}
+
+.dropdown select:hover {
+    background-color: #04AA6D;
+        color: white;
 }
