@@ -22,15 +22,27 @@ public class UserRestController {
      * @return if authenticated or not
      */
     @GetMapping("/checkUser")
-    public String checkUser(@RequestParam(value = "username") String username)
+    public String checkUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password)
     {
         try{
 
-            userRepository.findCovidCaseByUsername(username).getId();
+            userRepository.findCovidCaseByUsernameAndPassword(username, password).getId();
             return "true";
 
         }catch (Exception exception){
             return "false";
         }
+    }
+    /**
+     * Registers users
+     * @param username the user's username
+     * @return user
+     */
+    @GetMapping("/registerUser")
+    public User registerUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password)
+    {
+        User user = new User(username,password);
+        userRepository.save(user);
+        return user;
     }
 }

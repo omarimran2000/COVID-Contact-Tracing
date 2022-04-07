@@ -3,26 +3,28 @@
 <head>
     <title>Covid Case Contact</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/styling.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/contactForm.js"></script>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
 </head>
 <body>
 <div class="header">
-    <img src="/images/Logo.jpg" class="logo" width="150" height="125" align="left">
+    <img src="/images/Logo.jpg" class="logo" width="150" height="80" align="left">
     <div class ="items">
         <a href="/">Home</a>
         <a class="active" href="/login">Public Health Unit Login</a>
         <a href="/questionnaire">Questionnaire</a>
     </div>
 </div>
-<p>
+<p id = "title">
     <b>COVID-19 Contact Information Form</b>
 </p>
-<button type="button" id="createNewContact" onclick="createCovidCase();">Create New COVID-19 Case</button>
+
+<button type="button" class = "create" id="createNewContact" onclick="createCovidCase();">Create New COVID-19 Case</button>
 <br><br>
-<p>New COVID-19 Contact Case Form</p>
-<form id="contactInfo">
+<p class = "formTitle">New COVID-19 Contact Case Form</p>
+<form class = "contactForm" id="contactInfo">
     Full Name: <input type="text" id="name"> <br>
     Email: <input type="email" id="email"> <br>
     Phone Number: <input type="tel" id="pNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br>
@@ -35,18 +37,25 @@
     <button type="button" id="missingInfo" , onclick="showMissingInfo();">Contacts With Missing Info</button>
     <button type="button" id="haveSymptoms" , onclick="showSymptoms()">Contacts Has Symptoms</button>
     <button type="button" id="help" , onclick="showHelp()">Contacts Need Help</button>
-    <br>
+    <button type="button" id="quarantine" , onclick="showQuarantine()">Contacts Not Quarantining</button>
+    <br><br>
+    <button type="button" id="foodSupport" , onclick="showFoodSupport()">Contacts Requiring Food/Groceries</button>
+    <button type="button" id="medicalSupport", onclick="showMedicalSupport()">Contacts Requiring Medications/Prescriptions</button>
+    <button type="button" id="petSupport" , onclick="showPetSupport()">Contacts Requiring Pet Care</button>
+    <br><br>
     Search Contacts by COVID Case ID: <input type="text" id="searchID">
     <button type="button" id="search" , onclick="findCovidCase()">Search</button>
     <br><br><br><br>
+
 </form>
-<div id="infoMissingError" style="display: none;">
-    <p style="color:red"> Info missing, please fill in all fields </p>
-</div>
-<div id="caseNotFoundError" style="display: none;">
-    <p style="color:red"> Case with that ID does not exist </p>
-</div>
-<p id="console"></p>
+<p id="console">
+    <div id="infoMissingError" style="display: none;">
+        <p style="color:red"> Information missing or incorrect, please fill in all fields </p>
+    </div>
+    <div id="caseNotFoundError" style="display: none;">
+        <p style="color:red"> Case with that ID does not exist </p>
+    </div>
+</p>
 <p><a href="/">Return to Menu</a></p>
 </body>
 </html>

@@ -8,8 +8,8 @@ import java.util.List;
 /**
  * Contact Case Repository Class
  *
- * @author Omar Imran
- * @version March 8 2022
+ * @author Omar Imran, Wintana Yosief
+ * @version March 31 2022
  */
 public interface ContactCaseRepository extends CrudRepository<ContactCase, Long> {
     List<ContactCase> findByNameAndId(@Param("name") String name, @Param("id") Long id);
@@ -19,4 +19,13 @@ public interface ContactCaseRepository extends CrudRepository<ContactCase, Long>
     List<ContactCase> findByfilledOut(@Param("filledOut") boolean filledOut);
 
     List<ContactCase> findBySymptoms(@Param("symptoms") boolean symptoms);
+
+    List<ContactCase> findByQuarantine(@Param("quarantine") boolean quarantine);
+
+    List<ContactCase> findByFoodSupport(@Param("foodSupport") boolean foodSupport);
+
+    List<ContactCase> findByMedicalSupport(@Param("medicalSupport") boolean medicalSupport);
+
+    List<ContactCase> findByPetSupport(@Param("petSupport") boolean petSupport);
+
 }

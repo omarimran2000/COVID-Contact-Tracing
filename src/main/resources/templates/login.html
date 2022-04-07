@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/login.js"></script>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
 </head>
 <div class="header">
-    <img src="/images/Logo.jpg" class="logo" width="150" height="125" align="left">
+    <img src="/images/Logo.jpg" class="logo" width="150" height="80" align="left">
     <div class ="items">
         <a href="/">Home</a>
         <a class="active" href="/login">Public Health Unit Login</a>
@@ -18,10 +18,14 @@
 <body>
     <h1>Please enter your login information to enter the public health unit interface</h1>
     <div id="error" style="display: none;">
-        <p style="color:red"> Incorrect login information. Please try again</p>
+        <p style="color:red"> Incorrect login information.</p>
     </div>
-    Username: <input type="text" id="username">
-    <button type="button" id="submit" onclick="authenticate();">Login</button>
+    <div class="login">
+        <b>Username:</b> <br> <input type="text" placeholder="Enter Username" id="username"> <br> <br>
+        <b>Password:</b> <br> <input type="password" placeholder="Enter Password" id="password"> <br> <br>
+        <button type="button" id="submit" onclick="authenticate();">Login</button> <br>
+        <a href="/register">Click here if you need to be registered. </a>
+    </div>
 
 </body>
 </html>

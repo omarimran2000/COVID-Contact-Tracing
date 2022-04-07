@@ -8,8 +8,8 @@ import javax.persistence.Id;
 /**
  * Contact Case Class
  *
- * @author Omar Imran
- * @version March 8 2022
+ * @author Omar Imran, Wintana Yosief
+ * @version March 31 2022
  */
 @Entity
 public class ContactCase {
@@ -22,6 +22,10 @@ public class ContactCase {
     private boolean needHelp;
     private boolean filledOut;
     private boolean symptoms;
+    private boolean quarantine;
+    private boolean foodSupport;
+    private boolean medicalSupport;
+    private boolean petSupport;
 
     public ContactCase(String covidID, String name, String email, String exposureDate, String phone) {
         this.covidID = covidID;
@@ -30,8 +34,12 @@ public class ContactCase {
         this.exposureDate = exposureDate;
         this.phone = phone;
         needHelp = false;
+        foodSupport = false;
+        medicalSupport = false;
+        petSupport = false;
         filledOut = false;
         symptoms = false;
+        quarantine = true;
     }
 
     public ContactCase() {
@@ -80,6 +88,22 @@ public class ContactCase {
         return symptoms;
     }
 
+    public boolean isQuarantine() {
+        return quarantine;
+    }
+
+    public boolean isFoodSupport() {
+        return foodSupport;
+    }
+
+    public boolean isMedicalSupport() {
+        return medicalSupport;
+    }
+
+    public boolean isPetSupport() {
+        return petSupport;
+    }
+
     public void setCovidID(String covidID) {
         this.covidID = covidID;
     }
@@ -110,6 +134,22 @@ public class ContactCase {
 
     public void setSymptoms(boolean symptoms) {
         this.symptoms = symptoms;
+    }
+
+    public void setQuarantine(boolean quarantine) {
+        this.quarantine = quarantine;
+    }
+
+    public void setFoodSupport(boolean foodSupport){
+        this.foodSupport = foodSupport;
+    }
+
+    public void setMedicalSupport(boolean medicalSupport) {
+        this.medicalSupport = medicalSupport;
+    }
+
+    public void setPetSupport(boolean petSupport) {
+        this.petSupport = petSupport;
     }
 
     public String toString() {

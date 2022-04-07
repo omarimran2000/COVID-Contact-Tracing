@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Contact Case REST Controller Class
  *
- * @author Omar Imran
- * @version March 8 2022
+ * @author Omar Imran, Wintana Yosief
+ * @version March 31 2022
  */
 @RestController
 public class ContactCaseRestController {
@@ -38,14 +38,18 @@ public class ContactCaseRestController {
                                       @RequestParam(value = "email") String email,
                                       @RequestParam(value = "exposureDate") String exposureDate,
                                       @RequestParam(value = "covidID") String covidID) {
-        ContactCase contactCase = new ContactCase(covidID, name, email, exposureDate, phone);
-        contactCaseRepository.save(contactCase);
+        try {
+            ContactCase contactCase = new ContactCase(covidID, name, email, exposureDate, phone);
 
-        CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));
-        covidCase.addContactCase(contactCase);
-        covidCaseRepository.save(covidCase);
+            CovidCase covidCase = covidCaseRepository.findCovidCaseByCaseID(Long.parseLong(covidID));
+            covidCase.addContactCase(contactCase);
+            contactCaseRepository.save(contactCase);
+            covidCaseRepository.save(covidCase);
 
-        return contactCase;
+            return contactCase;
+        }catch (Exception ex){
+            return null;
+        }
 
     }
 
@@ -93,23 +97,78 @@ public class ContactCaseRestController {
      * @return list of contact cases
      */
     @GetMapping("/contactCaseSymptoms")
-    public List<ContactCase> contactCaseName() {
+    public List<ContactCase> contactCaseSymptoms() {
         return contactCaseRepository.findBySymptoms(true);
     }
 
+
+    /**
+     * Used to find all the contact cases requiring food and groceries
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseFoodSupport")
+    public List<ContactCase> contactCaseFoodSupport() {
+        return contactCaseRepository.findByFoodSupport(true);
+    }
+
+    /**
+     * Used to find all the contact cases requiring medications and prescriptions
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseMedicalSupport")
+    public List<ContactCase> contactCaseMedicalSupport() {
+        return contactCaseRepository.findByMedicalSupport(true);
+    }
+
+    /**
+     * Used to find all the contact cases requiring pet care
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCasePetSupport")
+    public List<ContactCase> contactCasePetSupport() {
+        return contactCaseRepository.findByPetSupport(true);
+    }
+
+    /**
+     * Used to add the answers from the questionnaire
+     * @param name
+     * @param id
+     * @param symptoms
+     * @param help
+     * @return the case
+     */
     @GetMapping("/contactCaseAddFilled")
     public ContactCase addFilled(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "id") String id,
                                  @RequestParam(value = "symptoms") String symptoms,
-                                 @RequestParam(value = "help") String help) {
+                                 @RequestParam(value = "help") String help,
+                                 @RequestParam(value = "quarantine") String quarantine,
+                                 @RequestParam(value = "supportNeeded") String supportNeeded) {
         ContactCase contactCase = contactCaseRepository.findByNameAndId(name, Long.valueOf(id)).get(0);
         contactCase.setFilledOut(true);
 
         contactCase.setSymptoms(symptoms.equals("Yes"));
 
         contactCase.setNeedHelp(help.equals("Yes"));
+        contactCase.setQuarantine(quarantine.equals("Yes"));
+        contactCase.setFoodSupport(supportNeeded.equals("food"));
+        contactCase.setMedicalSupport(supportNeeded.equals("meds"));
+        contactCase.setPetSupport(supportNeeded.equals("pet"));
+
         contactCaseRepository.save(contactCase);
         return contactCase;
+    }
+    /**
+     * Used to find all the contact cases who are not following quarantine
+     *
+     * @return list of contact cases
+     */
+    @GetMapping("/contactCaseQuarantine")
+    public List<ContactCase> contactCaseQuarantine() {
+        return contactCaseRepository.findByQuarantine(false);
     }
 
 }

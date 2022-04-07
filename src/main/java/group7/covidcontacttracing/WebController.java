@@ -21,4 +21,9 @@ public class WebController {
         return "login";
 
     }
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+
+    }
 }
