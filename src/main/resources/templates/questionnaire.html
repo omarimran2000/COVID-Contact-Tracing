@@ -19,7 +19,7 @@
 <div id="user_input">
     <p>Name: <input type="text" id="name"/></p>
     <p>Case ID: <input type="text" id="caseID"/></p>
-    <input type="button" value="Submit" id="nameCheck" onclick="findContact();">
+    <button type="button" onclick="findContact();" id="nameCheck">Submit</button>
 </div>
 <div id="error" style="display: none;">
     <p style="color:red"> Case not found. Please try again</p>
@@ -27,9 +27,10 @@
 <div id="form" style="display: none">
     <h1>Fill out the questionnaire</h1>
     <form>
+        <div class="dropdown">
         <label for="remain"> Since yesterday's questionnaire, have you remained inside your residence? </label>
         <select name="remain" id="remain">
-            <option value="" selected disabled hidden>Choose here</option>
+            <option class="o" value="" selected disabled hidden>Choose here</option>
             <option value="Yes"> Yes</option>
             <option value="No"> No</option>
         </select>
@@ -41,12 +42,10 @@
             <option value = "No"> No </option>
             <script>
                 document.getElementById("needSupport").addEventListener("change", function(){
-                    if ($('#needSupport').val() == "Yes")
-                    {
+                    if ($('#needSupport').val() == "Yes") {
                         $('#possibleHelp').show();
                     }
-                    else
-                    {
+                    else {
                         $('#possibleHelp').hide();
                     }
                 })
@@ -69,8 +68,9 @@
             <option value="Yes"> Yes</option>
             <option value="No"> No</option>
         </select>
+        </div>
         <br><br><br>
-        <input type="button" value="Submit questionnaire" onclick="filledOut();"/>
+        <button type="button" onclick="filledOut();">Submit questionnaire</button>
     </form>
     <p><a href="/">Return to Menu</a></p>
 </div>
