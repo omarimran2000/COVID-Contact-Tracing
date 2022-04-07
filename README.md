@@ -46,11 +46,15 @@ Case Form, or the questionnaire are empty, prompting the user to fill them in be
 submitting the questionnaire. The pages all have a unified header, showing the current page, and allowing navigation to 
 the other pages. 
 
-## Next Steps
 
-The next sprint will include registration of Public Health users, combined login and contact form pages, error tracking 
-for when a user tries to create new Contact Case that already exists, and feature to show when a Contact Case is not 
-following quarantine or when they need help while quarantining. 
+## Milestone 3: Final Product
+
+This milestone finalized the styling of the pages, expanded some features, added more error tracking, and added a 
+registration page for new Public Health users. A new feature for tracking Contact Cases that are not following 
+quarantine was added, and the feature for covid cases needing assistance has been split by the type of assistance 
+required (food, medical, or pet support). Contact Cases are only allowed to fill in the questionnaire once, and an error 
+message is shown if they attempt to fill it in again. An error message is shown if a covid case with the specified case 
+ID is not found when searching for cases on the contact form. 
 
 ## UML Class Diagram
 
