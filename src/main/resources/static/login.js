@@ -20,7 +20,9 @@ function registerUser(){
     var specialCharacters = /[!@#$%^&*()_=+<>?]/;
     var uppercase = /[A-Z]/;
     var lowercase = /[a-z]/;
-    var goodPass = true;
+    var register = true;
+
+    $('#userEmpty').hide();
     $('#errorRegister').hide();
     $('#errorLength').hide();
     $('#passHasSpace').hide();
@@ -32,38 +34,41 @@ function registerUser(){
     const pass1 = $('#password').val();
     const pass2 = $('#password2').val();
 
+    if(user.trim().length <= 0 ){
+        $('#userEmpty').show();
+    }
     if (pass1 != pass2)
     {
-        goodPass = false;
+        register = false;
         $('#errorRegister').show();
     }
     if (pass1.trim().length < 8)
     {
-        goodPass = false;
+        register = false;
         $('#errorLength').show();
     }
     if(pass1.indexOf(' ') >= 0)
     {
-        goodPass = false;
+        register = false;
         $('#passHasSpace').show();
     }
      if(!specialCharacters.test(pass1))
         {
-            goodPass = false;
+            register = false;
             $('#passNoSpecial').show();
         }
     if(!uppercase.test(pass1))
     {
-        goodPass = false;
+        register = false;
         $('#passNoCap').show();
     }
      if(!lowercase.test(pass1))
      {
-        goodPass = false;
+        register = false;
         $('#passNoLower').show();
      }
 
-    if(goodPass)
+    if(register)
     {
         $.ajax({
                 url: "/registerUser",
