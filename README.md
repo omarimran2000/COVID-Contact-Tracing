@@ -1,6 +1,6 @@
 # COVID Contact Tracing Questionnaire 
 
-## SYSC 4806 Project  [![omarimran2000](https://circleci.com/gh/omarimran2000/COVID-Contract-Tracing.svg?style=shield)](https://app.circleci.com/pipelines/github/omarimran2000/COVID-Contract-Tracing)
+## SYSC 4806 Project  [![omarimran2000](https://circleci.com/gh/omarimran2000/COVID-Contact-Tracing.svg?style=shield)](https://app.circleci.com/pipelines/github/omarimran2000/COVID-Contact-Tracing)
 
 https://covid-contact-tracing-4806.herokuapp.com/
 
